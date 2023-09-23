@@ -1,0 +1,15 @@
+E:\_School\Computer Science\CinemaBooking\bin\Debug\net7.0\CinemaBooking.exe
+E:\_School\Computer Science\CinemaBooking\bin\Debug\net7.0\CinemaBooking.deps.json
+E:\_School\Computer Science\CinemaBooking\bin\Debug\net7.0\CinemaBooking.runtimeconfig.json
+E:\_School\Computer Science\CinemaBooking\bin\Debug\net7.0\CinemaBooking.dll
+E:\_School\Computer Science\CinemaBooking\bin\Debug\net7.0\CinemaBooking.pdb
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.csproj.AssemblyReference.cache
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.GeneratedMSBuildEditorConfig.editorconfig
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.AssemblyInfoInputs.cache
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.AssemblyInfo.cs
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.csproj.CoreCompileInputs.cache
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.dll
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\refint\CinemaBooking.dll
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.pdb
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\CinemaBooking.genruntimeconfig.cache
+E:\_School\Computer Science\CinemaBooking\obj\Debug\net7.0\ref\CinemaBooking.dll
