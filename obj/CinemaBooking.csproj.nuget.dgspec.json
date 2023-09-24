@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj": {}
+    "e:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj": {}
   },
   "projects": {
-    "E:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj": {
+    "e:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj",
+        "projectUniqueName": "e:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj",
         "projectName": "CinemaBooking",
-        "projectPath": "E:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj",
+        "projectPath": "e:\\_School\\Computer Science\\CinemaBooking\\CinemaBooking.csproj",
         "packagesPath": "C:\\Users\\stubby\\.nuget\\packages\\",
-        "outputPath": "E:\\_School\\Computer Science\\CinemaBooking\\obj\\",
+        "outputPath": "e:\\_School\\Computer Science\\CinemaBooking\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\stubby\\AppData\\Roaming\\NuGet\\NuGet.Config"
