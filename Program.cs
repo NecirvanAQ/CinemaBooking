@@ -28,35 +28,20 @@ namespace Program
                 {"Filth", "18"},
                 {"Planes", "U"},
             };
-            char[,] array = new char[4, 9]; // 4 rows and 9 columns
 
-            // Fill the array with 'O' characters
-            for (int i = 0; i < 4; i++)
+            Dictionary<string, int> tickets = new Dictionary<string, int>()
             {
-                for (int j = 0; j < 9; j++)
-                {
-                    array[i, j] = 'O';
-                }
-            }
-
-            // Print the array
-            for (int i = 0; i < 4; i++)
-            {
-                Console.WriteLine("1 ");
-                for (int j = 0; j < 9; j++)
-                {
-                    Console.Write(array[i, j]);
-                }
-            }
-
-
-
-            Console.ReadKey();
-
+                {"PlaceHolder", 0},
+                {movies.ElementAt(1).Key, 0},
+                {movies.ElementAt(2).Key, 0},
+                {movies.ElementAt(3).Key, 0},
+                {movies.ElementAt(4).Key, 0},
+                {movies.ElementAt(5).Key, 0},
+            };
 
             while (movie_choice != "specialexitcode") // allows the program to run forever except when the specialexitcode is entered.
             {
-                movie_choice = Validate(movie_choice, movies); // receives movie_choice with validation
+                movie_choice = Validate(movie_choice, movies, tickets); // receives movie_choice with validation
                 Console.Clear();
 
                 if(Convert.ToInt32(movie_choice) > 5 || Convert.ToInt32(movie_choice) < 1) // if the movie is out of range
@@ -67,7 +52,8 @@ namespace Program
                 
                 else // will only run if movie is in range
                 {
-                    user_age = ValidateAge(user_age, movies); // receives user_age with validation
+
+                    user_age = ValidateAge(user_age, movies, tickets); // receives user_age with validation
                     Console.Clear();
 
                     if(movies.ElementAt(Convert.ToInt32(movie_choice)).Value != "U" && Convert.ToInt32(user_age) < Convert.ToInt32(movies.ElementAt(Convert.ToInt32(movie_choice)).Value)) // if the user is too young and movie is not a U
@@ -78,9 +64,9 @@ namespace Program
 
                     else // will only run if movie is in range and user is old enough
                     {
-                        user_date = ValidateDate(movies);
+                        user_date = ValidateDate(movies, tickets);
                         var diffOfDates = user_date - DateTime.Now;
-                        if (diffOfDates.Days > 7 && diffOfDates.Days < 0)
+                        if (diffOfDates.Days > 7 || diffOfDates.Days < 0)
                         {
                             Console.WriteLine("Access denied - date is invalid");
                             Thread.Sleep(5000);
@@ -89,7 +75,31 @@ namespace Program
                         else // will only run if movie is in range, user is old enough and date is valid
                         {
                             Console.Clear();
-                            Print(user_date, user_age, movie_choice);
+                            Print(DateOnly.FromDateTime(user_date), user_age, movie_choice, movies);
+                            
+                            // *IMPORTANT* Fix bad code here
+                            // Ticket counting system
+
+                            if (movie_choice == "1")
+                            {
+                                tickets["rush"] += 1;
+                            }
+                            if (movie_choice == "2")
+                            {
+                                tickets["How I Live Now"] += 1;
+                            }
+                            if (movie_choice == "3")
+                            {
+                                tickets["Thor: The Dark World"] += 1;
+                            }
+                            if (movie_choice == "4")
+                            {
+                                tickets["Filth"] += 1;
+                            }
+                            if (movie_choice == "5")
+                            {
+                                tickets["Planes"] += 1;
+                            }
                         }
                             
                     }
@@ -98,17 +108,17 @@ namespace Program
         }
 
         /* THIS PRINTS THE MENU SCREEN AND TAKES USER INPUT*/
-        static string menu(Dictionary<string, string> movies)
+        static string menu(Dictionary<string, string> movies, Dictionary<string, int> tickets)
         {
             // I wrote the code in a way which allows everything to still work if the dictionary is changed to have different movies and age ratings.
             Console.Clear();
-            Console.Write($"Welcome to Aquinas Multiplex\nWe are presently showing\n1. {movies.ElementAt(1).Key} ({movies.ElementAt(1).Value})\n2. {movies.ElementAt(2).Key} ({movies.ElementAt(2).Value})\n3. {movies.ElementAt(3).Key} ({movies.ElementAt(3).Value})\n4. {movies.ElementAt(4).Key} ({movies.ElementAt(4).Value})\n5. {movies.ElementAt(5).Key} ({movies.ElementAt(5).Value})\n\n");
+            Console.Write($"Welcome to Aquinas Multiplex\nWe are presently showing\n1. {movies.ElementAt(1).Key} ({movies.ElementAt(1).Value})  Tickets sold: {tickets.ElementAt(1).Value}\n2. {movies.ElementAt(2).Key} ({movies.ElementAt(2).Value})  Tickets sold: {tickets.ElementAt(2).Value}\n3. {movies.ElementAt(3).Key} ({movies.ElementAt(3).Value})  Tickets sold: {tickets.ElementAt(3).Value}\n4. {movies.ElementAt(4).Key} ({movies.ElementAt(4).Value})  Tickets sold: {tickets.ElementAt(4).Value}\n5. {movies.ElementAt(5).Key} ({movies.ElementAt(5).Value})  Tickets sold: {tickets.ElementAt(5).Value}\n\n");
             return"";
         }
 
-        static string Validate(string movie_choice, Dictionary<string, string> movies) // Allows the user to input movie choice
+        static string Validate(string movie_choice, Dictionary<string, string> movies, Dictionary<string, int> tickets) // Allows the user to input movie choice
         {
-            menu(movies);
+            menu(movies, tickets);
             do{
                 Console.WriteLine("Enter the number of the film you wish to see: ");
                 movie_choice = Console.ReadLine();
@@ -119,7 +129,7 @@ namespace Program
                 }
                 catch
                 {
-                    menu(movies);
+                    menu(movies, tickets);
                     Console.WriteLine("Enter a movie from 1 - 5!");
                 }
             }while(true);
@@ -128,9 +138,9 @@ namespace Program
 
         }
 
-        static string ValidateAge(string user_age, Dictionary<string, string> movies) // Allows the user to input their age
+        static string ValidateAge(string user_age, Dictionary<string, string> movies, Dictionary<string, int> tickets) // Allows the user to input their age
         {
-            menu(movies);
+            menu(movies, tickets);
             do{
                 Console.WriteLine("Enter your age: ");
                 user_age = Console.ReadLine();
@@ -141,7 +151,7 @@ namespace Program
                 }
                 catch
                 {
-                    menu(movies);
+                    menu(movies, tickets);
                     Console.WriteLine("Enter a number!");
                 }
             }while(true);
@@ -149,11 +159,11 @@ namespace Program
             return user_age;
 
         }
-        static DateTime ValidateDate(Dictionary<string, string> movies) // Allows the user to input when they want to watch
+        static DateTime ValidateDate(Dictionary<string, string> movies, Dictionary<string, int> tickets) // Allows the user to input when they want to watch
         {
             DateTime user_date = DateTime.Now;
             string input;
-            menu(movies);
+            menu(movies, tickets);
             do{
                 Console.WriteLine("When would you like to watch the movie? ");
                 input = Console.ReadLine();
@@ -164,7 +174,7 @@ namespace Program
                 }
                 catch
                 {
-                    menu(movies);
+                    menu(movies, tickets);
                     Console.WriteLine("Enter a date!");
                 }
             }while(true);
@@ -173,11 +183,11 @@ namespace Program
 
         }
 
-        static void Print(DateTime user_date, string user_age, string movie_choice)
+        static void Print(DateOnly user_date, string user_age, string movie_choice, Dictionary<string, string> movies)
         {
             Console.WriteLine("-----------------");
             Thread.Sleep(100);
-            Console.WriteLine($"Film : {movie_choice}");
+            Console.WriteLine($"Film : {movies.ElementAt(Convert.ToInt32(movie_choice)).Key}");
             Thread.Sleep(100);
             Console.WriteLine($"Date : {user_date}");
             Thread.Sleep(100);
