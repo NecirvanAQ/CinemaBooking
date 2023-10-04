@@ -29,7 +29,7 @@ namespace Program
                 {"Planes", "U"},
             };
 
-            Dictionary<string, int> tickets = new Dictionary<string, int>()
+            Dictionary<string, int> tickets = new Dictionary<string, int>() // a dictionary for the movies (written in a way to take input from the first dictionary) and how many tickets have been sold for that
             {
                 {"PlaceHolder", 0},
                 {movies.ElementAt(1).Key, 0},
@@ -76,32 +76,30 @@ namespace Program
                         {
                             Console.Clear();
                             Print(DateOnly.FromDateTime(user_date), user_age, movie_choice, movies);
-                            
+
                             // *IMPORTANT* Fix bad code here
                             // Ticket counting system
 
-                            if (movie_choice == "1")
+                            switch (Convert.ToInt32(movie_choice))
                             {
-                                tickets["rush"] += 1;
+                                case 1:
+                                    tickets["Rush"] += 1;
+                                    break;
+                                case 2:
+                                    tickets["How I Live Now"] += 1;
+                                    break;
+                                case 3:
+                                    tickets["Thor: The Dark World"] += 1;
+                                    break;
+                                case 4:
+                                    tickets["Filth"] += 1;
+                                    break;
+                                case 5:
+                                    tickets["Planes"] += 1;
+                                    break;
                             }
-                            if (movie_choice == "2")
-                            {
-                                tickets["How I Live Now"] += 1;
-                            }
-                            if (movie_choice == "3")
-                            {
-                                tickets["Thor: The Dark World"] += 1;
-                            }
-                            if (movie_choice == "4")
-                            {
-                                tickets["Filth"] += 1;
-                            }
-                            if (movie_choice == "5")
-                            {
-                                tickets["Planes"] += 1;
-                            }
+
                         }
-                            
                     }
                 }
             }

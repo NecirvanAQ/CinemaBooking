@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking\\CinemaBooking.csproj": {}
+    "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking2\\CinemaBooking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking\\CinemaBooking.csproj": {
+    "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking2\\CinemaBooking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking\\CinemaBooking.csproj",
+        "projectUniqueName": "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking2\\CinemaBooking.csproj",
         "projectName": "CinemaBooking",
-        "projectPath": "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking\\CinemaBooking.csproj",
+        "projectPath": "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking2\\CinemaBooking.csproj",
         "packagesPath": "C:\\Users\\AQ231029\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking\\obj\\",
+        "outputPath": "C:\\Users\\AQ231029\\source\\repos\\CinemaBooking2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

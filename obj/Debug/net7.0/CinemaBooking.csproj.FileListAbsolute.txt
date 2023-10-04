@@ -27,3 +27,17 @@ C:\Users\AQ231029\source\repos\CinemaBooking\obj\Debug\net7.0\refint\CinemaBooki
 C:\Users\AQ231029\source\repos\CinemaBooking\obj\Debug\net7.0\CinemaBooking.pdb
 C:\Users\AQ231029\source\repos\CinemaBooking\obj\Debug\net7.0\CinemaBooking.genruntimeconfig.cache
 C:\Users\AQ231029\source\repos\CinemaBooking\obj\Debug\net7.0\ref\CinemaBooking.dll
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\CinemaBooking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\CinemaBooking.AssemblyInfoInputs.cache
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\CinemaBooking.AssemblyInfo.cs
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\CinemaBooking.csproj.CoreCompileInputs.cache
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\CinemaBooking.dll
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\refint\CinemaBooking.dll
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\CinemaBooking.pdb
+C:\Users\AQ231029\source\repos\CinemaBooking2\bin\Debug\net7.0\CinemaBooking.exe
+C:\Users\AQ231029\source\repos\CinemaBooking2\bin\Debug\net7.0\CinemaBooking.deps.json
+C:\Users\AQ231029\source\repos\CinemaBooking2\bin\Debug\net7.0\CinemaBooking.runtimeconfig.json
+C:\Users\AQ231029\source\repos\CinemaBooking2\bin\Debug\net7.0\CinemaBooking.dll
+C:\Users\AQ231029\source\repos\CinemaBooking2\bin\Debug\net7.0\CinemaBooking.pdb
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\CinemaBooking.genruntimeconfig.cache
+C:\Users\AQ231029\source\repos\CinemaBooking2\obj\Debug\net7.0\ref\CinemaBooking.dll
