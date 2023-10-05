@@ -91,7 +91,7 @@ namespace Program
                             seats[row][column] = "X"; // assigns seat as "taken"
 
                             Console.Clear();
-                            Print(DateOnly.FromDateTime(user_date), user_age, movie_choice, movies, row, column);
+                            Print(DateOnly.FromDateTime(user_date), user_age, movie_choice, movies, row, column); // prints ticket
 
                             // Ticket counting system
 
@@ -202,7 +202,7 @@ namespace Program
             return user_date;
 
         }
-
+        // prints ticket
         static void Print(DateOnly user_date, string user_age, string movie_choice, Dictionary<string, string> movies, int row, int column)
         {
             Console.WriteLine("-----------------");
