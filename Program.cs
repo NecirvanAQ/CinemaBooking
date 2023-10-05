@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.IO;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 
@@ -15,9 +17,10 @@ namespace Program
         static void Main(string[] args)
         {
             /*essential variable/lists */
-            
             string user_age = ""; // stores user's age
             string movie_choice = ""; // stores user's movie choice
+            int row, column = 0; // stores user seat
+
             DateTime user_date;
             Dictionary<string, string> movies = new Dictionary<string, string>() // a dictionary for the movies, and their age ratings (can be easily changed and program will run fine)
             {
@@ -38,6 +41,14 @@ namespace Program
                 {movies.ElementAt(4).Key, 0},
                 {movies.ElementAt(5).Key, 0},
             };
+
+            List<List<string>> seats = new List<List<string>>();
+
+            seats.Add(new List<string> {"O", "O", "O", "O", "O"});
+            seats.Add(new List<string> {"O", "O", "O", "O", "O"});
+            seats.Add(new List<string> {"O", "O", "O", "O", "O"});
+            seats.Add(new List<string> {"O", "O", "O", "O", "O"});
+            seats.Add(new List<string> {"O", "O", "O", "O", "O"});
 
             while (movie_choice != "specialexitcode") // allows the program to run forever except when the specialexitcode is entered.
             {
@@ -71,13 +82,17 @@ namespace Program
                             Console.WriteLine("Access denied - date is invalid");
                             Thread.Sleep(5000);
                         }
-
+                        
                         else // will only run if movie is in range, user is old enough and date is valid
                         {
-                            Console.Clear();
-                            Print(DateOnly.FromDateTime(user_date), user_age, movie_choice, movies);
+                            
+                            (row, column) = ValidateSeat(seats); // takes seat input
 
-                            // *IMPORTANT* Fix bad code here
+                            seats[row][column] = "X"; // assigns seat as "taken"
+
+                            Console.Clear();
+                            Print(DateOnly.FromDateTime(user_date), user_age, movie_choice, movies, row, column);
+
                             // Ticket counting system
 
                             switch (Convert.ToInt32(movie_choice))
@@ -98,6 +113,13 @@ namespace Program
                                     tickets["Planes"] += 1;
                                     break;
                             }
+
+                            /* RESETING ALL VARIABLES*/
+                            user_age = "";
+                            movie_choice = "";
+                            row = 0;
+                            column = 0;
+
 
                         }
                     }
@@ -181,13 +203,15 @@ namespace Program
 
         }
 
-        static void Print(DateOnly user_date, string user_age, string movie_choice, Dictionary<string, string> movies)
+        static void Print(DateOnly user_date, string user_age, string movie_choice, Dictionary<string, string> movies, int row, int column)
         {
             Console.WriteLine("-----------------");
             Thread.Sleep(100);
             Console.WriteLine($"Film : {movies.ElementAt(Convert.ToInt32(movie_choice)).Key}");
             Thread.Sleep(100);
             Console.WriteLine($"Date : {user_date}");
+            Thread.Sleep(100);
+            Console.WriteLine($"Seat : {row}{column}");
             Thread.Sleep(100);
             Console.WriteLine("");
             Thread.Sleep(100);
@@ -198,5 +222,67 @@ namespace Program
             
         }
 
+        static void displaySeats(List<List<string>> seats)
+        {
+            /* Displays Seats*/
+
+            Console.Clear();
+            int i = 0;
+
+            Console.Write("  12345");
+
+            foreach(var list in seats)
+            {
+
+
+                Console.WriteLine("");
+                i++;
+                Console.Write($"{i} ");
+
+                foreach (var item in list)
+                {
+                    Console.Write(item);
+                }
+            }
+            
+
+        }
+
+        static (int, int) ValidateSeat(List<List<string>> seats)
+        {
+            int row = 0;
+            int column = 0;
+
+            while (true)
+            {
+
+                displaySeats(seats);
+                Console.WriteLine("\nPlease enter where you would like to sit!");
+                Console.WriteLine("\nEnter row: ");
+                string roe = Console.ReadLine();
+                Console.WriteLine("Enter column: ");
+                string colum = Console.ReadLine();
+
+                try
+                {
+                    row = int.Parse(roe);
+                    column = int.Parse(colum);
+
+                    if (  (row < 6 || row > 0) && (column < 6 || column > 0)  && (seats[row][column] == "O") ) // if the seat is valid and not taken
+                    {
+                        break;
+                    }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.WriteLine("That spot has been taken!");
+                    Thread.Sleep(1000);
+                }
+
+            }
+
+            return (row, column);
+        }
     }
 }
